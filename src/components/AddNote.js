@@ -31,7 +31,11 @@ export const AddNote = ({ onSubmit }) => {
         autoCorrect={false}
         autoCapitalize="sentences"
       />
-      <TouchableOpacity style={styles.button} onPress={pressHandler}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={pressHandler}
+        activeOpacity={0.9}
+      >
         <Text style={styles.buttonText}>Add Note</Text>
       </TouchableOpacity>
     </View>
@@ -56,11 +60,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#203344",
     padding: 5,
     height: 42,
     borderRadius: 10,
     marginLeft: 4,
+    borderWidth: 2,
+    borderColor: "#456f93",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+    elevation: 4,
   },
   buttonText: {
     color: "#fff",

@@ -14,8 +14,10 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: "#000",
+    backgroundColor: "#2e4a62",
     paddingBottom: 10,
+    borderBottomWidth: 2,
+    borderColor: "#000",
   },
   text: {
     color: "#fff",
