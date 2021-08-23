@@ -1,11 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { Navbar } from "./src/components/Navbar";
+import { AddNote } from "./src/components/AddNote";
+import { Note } from "./src/components/Note";
 
 export default function App() {
+  const [notes, setNotes] = useState([]);
+
+  const addNote = (title) => {
+    setNotes((prevNotes) => [
+      ...prevNotes,
+      {
+        id: Date.now().toString(),
+        title,
+      },
+    ]);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View>
+      <Navbar title="Note App" />
+      <View style={styles.container}>
+        <AddNote onSubmit={addNote} />
+        <View>
+          {notes.map((note) => (
+            <Note note={note} key={note.id} />
+          ))}
+        </View>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,9 +36,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 30,
+    paddingVertical: 20,
   },
 });
